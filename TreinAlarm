@@ -1,0 +1,32 @@
+import keyboard
+
+grid = [[0,0,0,0,'\n'],
+        [0,0,0,0,'\n'],
+        [0,0,0,0,'\n'],
+        [0,0,0,0]]
+
+keysX = {'1':0, '2':1, '3':2, '4':3,
+         'q':0, 'w':1, 'e':2, 'r':3,
+         'a':0, 's':1, 'd':2, 'f':3,
+         'z':0, 'x':1, 'c':2, 'v':3}
+
+keysY = {'1':0, '2':0, '3':0, '4':0,
+         'q':1, 'w':1, 'e':1, 'r':1,
+         'a':2, 's':2, 'd':2, 'f':2,
+         'z':3, 'x':3, 'c':3, 'v':3}
+
+
+def pressKey(event):
+    if event.name in keys:
+        grid[keysY[event.name]][keysX[event.name]] = 1
+        print(grid)
+def releaseKey(event):
+    if event.name in keys:
+        grid[keysY[event.name]][keysX[event.name]] = 0
+        print(grid)
+
+
+
+while True:
+    keyboard.on_press(pressKey)
+    keyboard.on_release(releaseKey)
